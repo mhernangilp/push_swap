@@ -27,8 +27,14 @@ typedef struct s_stack
 void	exit_program(t_stack *a, t_stack *b);
 int		check_args(char **argv, int argc);
 void initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
-t_stack	*new_node(char *value);
 int	ft_atoi(const char *str);
+
+//Movement functions
+void	sa(t_stack **stack);
+
+//Basic functions
+t_stack	*new_node(char *value);
+int	stack_len(t_stack *stack);
 
 //Extra functions
 void	print_stack(char name, t_stack *stack);

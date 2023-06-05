@@ -18,3 +18,18 @@ t_stack	*new_node(char *value)
 	node -> next = NULL;
 	return(node);
 }
+
+int	stack_len(t_stack *stack)
+{
+	int	i;
+	t_stack	*aux;
+
+	i = 0;
+	aux = stack;
+	while (aux != NULL)
+	{
+		i += 1;
+		aux = aux -> next;
+	}
+	return (i);
+}
