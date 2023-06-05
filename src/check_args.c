@@ -12,7 +12,15 @@
 
 #include "../push_swap.h"
 
-int check_args(char **argv)
+int check_args(char **argv, int argc)
 {
+	int	i;
+
+	i = 0;
+	while (++i < argc)
+	{
+		if (ft_atoi(argv[i]) == 0 && argv[i][0] != 0)
+			return (0);
+	}
 	return (1);
 }

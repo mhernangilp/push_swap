@@ -14,4 +14,5 @@
 
 void	exit_program(t_stack *a, t_stack *b)
 {
+	exit(0);
 }
