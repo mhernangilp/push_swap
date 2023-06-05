@@ -29,16 +29,22 @@ int		check_args(char **argv, int argc);
 void initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
 int	ft_atoi(const char *str);
 
+//Sort big functions
+void	sort_big(t_stack **a, t_stack **b);
+
+//Sort small functions
+void	sort_small(t_stack **a, t_stack **b);
+
 //Movement functions
-void	swap(t_stack **stack);
-void	push(t_stack **dest, t_stack **orig);
-void	rotate(t_stack **stack);
-void	reverse(t_stack **stack);
+void	swap(t_stack **stack, char name);
+void	push(t_stack **dest, t_stack **orig, char name);
+void	rotate(t_stack **stack, char name);
+void	reverse(t_stack **stack, char name);
 
 //Basic functions
 t_stack	*new_node(char *value);
 int	stack_len(t_stack *stack);
-int	is_ordered(t_stack *stack);
+int	is_sorted(t_stack *stack);
 
 //Extra functions
 void	print_stack(char name, t_stack *stack);

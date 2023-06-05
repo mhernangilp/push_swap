@@ -12,10 +12,10 @@
 
 #include "../push_swap.h"
 
-void initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
 {
-	int	i;
-	t_stack	*temp_node;
+	int		i;
+	t_stack		*temp_node;
 
 	*b = NULL;
 	i = argc - 1;

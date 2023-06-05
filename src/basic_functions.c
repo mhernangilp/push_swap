@@ -32,7 +32,7 @@ int	stack_len(t_stack *stack)
 	return (i);
 }
 
-int	is_ordered(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	if (stack_len(stack) < 2)
 		return (1);
