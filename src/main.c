@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	}
 	print_stack('a', a);
 	print_stack('b', b);
-	sa(&a);
+	printf("Ordered: %d\n", is_ordered(a));
 	print_stack('a', a);
 	print_stack('b', b);
 	return (0);

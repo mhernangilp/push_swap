@@ -22,14 +22,25 @@ t_stack	*new_node(char *value)
 int	stack_len(t_stack *stack)
 {
 	int	i;
-	t_stack	*aux;
 
 	i = 0;
-	aux = stack;
-	while (aux != NULL)
+	while (stack != NULL)
 	{
 		i += 1;
-		aux = aux -> next;
+		stack = stack -> next;
 	}
 	return (i);
+}
+
+int	is_ordered(t_stack *stack)
+{
+	if (stack_len(stack) < 2)
+		return (1);
+	while (stack -> next != NULL)
+	{
+		if (*stack -> value > *stack -> next -> value)
+			return (0);
+		stack = stack -> next;
+	}
+	return (1);
 }
