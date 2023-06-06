@@ -16,6 +16,19 @@ static int	get_biggest_num(t_stack *stack)
 	return (i);
 }
 
+static int	get_smallest_num(t_stack *stack)
+{
+	int	i;
+
+	i = 2147483647;
+	while (stack != NULL)
+	{
+		if (*stack -> value < i)
+			i = *stack -> value;
+		stack = stack -> next;
+	}
+	return (i);
+}
 static void	sort_3(t_stack **a)
 {
 	int	biggest;
@@ -45,8 +58,39 @@ static void	sort_3(t_stack **a)
 	}
 }
 
+static void	place_stack(t_stack **a, int value)
+{
+	t_stack	*end;
+
+	if (value < get_smallest_num(*a) || value > get_biggest_num(*a))
+		while (*(*a) -> value != get_smallest_num(*a))
+			rotate(a, 'a');
+	else
+	{
+		end = *a;
+		while (end -> next != NULL)
+			end = end -> next;
+		while (!(*end -> value < value && value < *(*a) -> value))
+		{
+			rotate(a, 'a');
+			end = *a;
+			while (end -> next != NULL)
+				end = end -> next;
+		}
+	}
+}
+
 static void	sort_5(t_stack **a, t_stack **b)
 {
+	push(b, a, 'b');
+	push(b, a, 'b');
+	sort_3(a);
+	place_stack(a, *(*b) -> value);
+	push(a, b, 'a');
+	place_stack(a, *(*b) -> value);
+	push(a, b, 'a');
+	while (!is_sorted(*a))
+		rotate(a, 'a');
 }
 
 void	sort_small(t_stack **a, t_stack **b)
