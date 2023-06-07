@@ -82,13 +82,14 @@ static void	place_stack(t_stack **a, int value)
 
 static void	sort_5(t_stack **a, t_stack **b)
 {
-	push(b, a, 'b');
-	push(b, a, 'b');
+	while (stack_len(*a) > 3)
+		push(b, a, 'b');
 	sort_3(a);
-	place_stack(a, *(*b) -> value);
-	push(a, b, 'a');
-	place_stack(a, *(*b) -> value);
-	push(a, b, 'a');
+	while (stack_len(*b) > 0)
+	{
+		place_stack(a, *(*b) -> value);
+		push(a, b, 'a');
+	}
 	while (!is_sorted(*a))
 		rotate(a, 'a');
 }
