@@ -57,7 +57,8 @@ static void	sort_5(t_stack **a, t_stack **b)
 {
 	while (stack_len(*a) > 3)
 		push(b, a, 'b');
-	sort_3(a);
+	if (!is_sorted(*a))
+		sort_3(a);
 	while (stack_len(*b) > 0)
 	{
 		place_stack(a, *(*b) -> value);
