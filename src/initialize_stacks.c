@@ -12,6 +12,53 @@
 
 #include "../push_swap.h"
 
+static void	new_index(t_stack *stack, int value)
+{
+	int	*index;
+
+	if (stack != NULL)
+	{
+		index = malloc(sizeof(int));
+		if (!index)
+			return ;
+		*index = value;
+		stack -> index = index;
+	}
+}
+
+static void	assign_smallest(t_stack **aux, t_stack **smallest, int *smallest_num)
+{
+	if (*(*aux) -> value <= *smallest_num && (*aux) -> index == NULL)
+	{
+		*smallest_num = *(*aux) -> value;
+		*smallest = *aux;
+	}
+	(*aux) = (*aux) -> next;
+}
+
+static void	initialize_index(t_stack **a)
+{
+	int	i;
+	int	finished;
+	t_stack	*aux;
+	t_stack	*smallest;
+	int	smallest_num;
+
+	i = 0;
+	finished = 0;
+	while (!finished)
+	{
+		smallest_num = 2147483647;
+		smallest = NULL;
+		aux = *a;
+		while(aux != NULL)
+			assign_smallest(&aux, &smallest, &smallest_num);
+		if (smallest == NULL)
+			finished = 1;
+		new_index(smallest, i++);
+	}
+}
+
 void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
 {
 	int		i;
@@ -26,6 +73,8 @@ void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
 	{
 		temp_node = new_node(argv[i]);
 		temp_node -> next = *a;
+		temp_node -> index = NULL;
 		*a = temp_node;
 	}
+	initialize_index(a);
 }

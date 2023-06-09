@@ -21,6 +21,7 @@
 typedef struct s_stack
 {
 	int		*value;
+	int		*index;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -45,6 +46,8 @@ void	reverse(t_stack **stack, char name);
 t_stack	*new_node(char *value);
 int	stack_len(t_stack *stack);
 int	is_sorted(t_stack *stack);
+int	get_biggest_num(t_stack *stack);
+int	get_smallest_num(t_stack *stack);
 
 //Extra functions
 void	print_stack(char name, t_stack *stack);

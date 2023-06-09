@@ -9,7 +9,7 @@ void	print_stack(char name, t_stack *stack)
 	aux = stack;
 	while (aux != NULL)
 	{
-		printf("%d\n", *aux -> value);
+		printf("%d   (%d)\n", *aux -> value, *aux -> index);
 		aux = aux -> next;
 	}
 }

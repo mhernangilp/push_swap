@@ -2,33 +2,6 @@
 
 #include "../push_swap.h"
 
-static int	get_biggest_num(t_stack *stack)
-{
-	int	i;
-
-	i = -2147483648;
-	while (stack != NULL)
-	{
-		if (*stack -> value > i)
-			i = *stack -> value;
-		stack = stack -> next;
-	}
-	return (i);
-}
-
-static int	get_smallest_num(t_stack *stack)
-{
-	int	i;
-
-	i = 2147483647;
-	while (stack != NULL)
-	{
-		if (*stack -> value < i)
-			i = *stack -> value;
-		stack = stack -> next;
-	}
-	return (i);
-}
 static void	sort_3(t_stack **a)
 {
 	int	biggest;

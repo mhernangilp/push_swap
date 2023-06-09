@@ -23,18 +23,18 @@ int	main(int argc, char **argv)
 		exit_program(NULL, NULL);
 	}
 	else
-	{
 		initialize_stacks(&a, &b, argv, argc);
+	print_stack('a', a);
+	print_stack('b', b);
+	if (!is_sorted(a))
+	{
+		if (stack_len(a) < 6)
+			sort_small(&a, &b);
+		else
+			sort_big(&a, &b);
 	}
 	print_stack('a', a);
 	print_stack('b', b);
-	if (is_sorted(a))
-		exit_program(a, b);
-	if (stack_len(a) < 6)
-		sort_small(&a, &b);
-	else
-		sort_big(&a, &b);
-	print_stack('a', a);
-	print_stack('b', b);
+	exit_program(a, b);
 	return (0);
 }
