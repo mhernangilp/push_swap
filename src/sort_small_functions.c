@@ -6,7 +6,7 @@ static void	sort_3(t_stack **a)
 {
 	int	biggest;
 
-	biggest = get_biggest_num(*a);
+	biggest = get_biggest_num(*a, 0);
 	if (*(*a) -> value == biggest)
 	{
 		if (*(*a) -> next -> value > *(*a) -> next -> next -> value)
@@ -35,8 +35,8 @@ static void	place_stack(t_stack **a, int value)
 {
 	t_stack	*end;
 
-	if (value < get_smallest_num(*a) || value > get_biggest_num(*a))
-		while (*(*a) -> value != get_smallest_num(*a))
+	if (value < get_smallest_num(*a, 0) || value > get_biggest_num(*a, 0))
+		while (*(*a) -> value != get_smallest_num(*a, 0))
 			rotate(a, 'a');
 	else
 	{

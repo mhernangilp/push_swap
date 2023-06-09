@@ -36,6 +36,54 @@ static void	assign_smallest(t_stack **aux, t_stack **smallest, int *smallest_num
 	(*aux) = (*aux) -> next;
 }
 
+static void	set_arr(t_stack *stack, int index)
+{
+	int	*arr;
+	int	i;
+
+	arr = malloc(sizeof(int) * *stack -> arr_size);
+	i = *stack -> arr_size - 1;
+	while (index != 0)
+	{
+		arr[i] = index % 2;
+		index /= 2;
+		i--;
+	}
+	while (i >= 0)
+	{
+		arr[i] = 0;
+		i--;
+	}
+	stack -> arr = arr;
+}
+
+static void	set_arr_size(t_stack *stack, int index)
+{
+	int *i;
+
+	i = malloc(sizeof(int));
+	*i = 1;
+	while (index > 1)
+	{
+		index /= 2;
+		(*i)++;
+	}
+	stack -> arr_size = i;
+}
+
+static void	convert_index_to_bin(t_stack **a)
+{
+	t_stack	*aux;
+
+	aux = *a;
+	while (aux != NULL)
+	{
+		set_arr_size(aux, get_biggest_num(*a, 1));
+		set_arr(aux, *aux -> index);
+		aux = aux -> next;
+	}
+}
+
 static void	initialize_index(t_stack **a)
 {
 	int	i;
@@ -57,6 +105,7 @@ static void	initialize_index(t_stack **a)
 			finished = 1;
 		new_index(smallest, i++);
 	}
+	convert_index_to_bin(a);
 }
 
 void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
@@ -74,6 +123,8 @@ void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
 		temp_node = new_node(argv[i]);
 		temp_node -> next = *a;
 		temp_node -> index = NULL;
+		temp_node -> arr = NULL;
+		temp_node -> arr_size = NULL;
 		*a = temp_node;
 	}
 	initialize_index(a);
