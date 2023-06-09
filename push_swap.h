@@ -27,7 +27,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void	exit_program(t_stack *a, t_stack *b);
+void	exit_program(t_stack **a, t_stack **b);
 int		check_args(char **argv, int argc);
 void initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
 int	ft_atoi(const char *str);

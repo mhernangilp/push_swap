@@ -33,6 +33,6 @@ int	main(int argc, char **argv)
 		else
 			sort_big(&a, &b);
 	}
-	exit_program(a, b);
+	exit_program(&a, &b);
 	return (0);
 }
