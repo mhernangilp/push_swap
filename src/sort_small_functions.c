@@ -67,7 +67,7 @@ static void	place_stack(t_stack **a, int value)
 	if (value < get_smallest_num(*a, 0) || value > get_biggest_num(*a, 0))
 		while (*(*a) -> value != get_smallest_num(*a, 0))
 		{
-			if (get_stack_pos(a, value) < stack_len(*a) / 2) 
+			if (get_stack_pos(a, value) <= stack_len(*a) / 2) 
 				rotate(a, 'a');
 			else
 				reverse(a, 'a');
@@ -79,7 +79,7 @@ static void	place_stack(t_stack **a, int value)
 			end = end -> next;
 		while (!(*end -> value < value && value < *(*a) -> value))
 		{
-			if (get_stack_pos(a, value) < stack_len(*a) / 2)
+			if (get_stack_pos(a, value) <= stack_len(*a) / 2)
 				rotate(a, 'a');
 			else
 				reverse(a, 'a');
