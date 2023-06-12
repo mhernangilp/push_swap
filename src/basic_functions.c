@@ -1,22 +1,20 @@
-
-
 #include "../push_swap.h"
 
 t_stack	*new_node(char *value)
 {
 	t_stack	*node;
-	int	*temp_value;
+	int		*temp_value;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
 	temp_value = malloc(sizeof(int));
 	if (!temp_value)
-		return  (NULL);
+		return (NULL);
 	*temp_value = ft_atoi(value);
 	node -> value = temp_value;
 	node -> next = NULL;
-	return(node);
+	return (node);
 }
 
 int	stack_len(t_stack *stack)
@@ -52,19 +50,23 @@ int	get_biggest_num(t_stack *stack, int mode)
 
 	i = -2147483648;
 	if (mode == 0)
+	{
 		while (stack != NULL)
 		{
 			if (*stack -> value > i)
 				i = *stack -> value;
 			stack = stack -> next;
 		}
+	}
 	else
+	{
 		while (stack != NULL)
 		{
 			if (*stack -> index > i)
 				i = *stack -> index;
 			stack = stack -> next;
 		}
+	}
 	return (i);
 }
 
@@ -75,18 +77,22 @@ int	get_smallest_num(t_stack *stack, int mode)
 
 	i = 2147483647;
 	if (mode == 0)
+	{
 		while (stack != NULL)
 		{
 			if (*stack -> value < i)
 				i = *stack -> value;
 			stack = stack -> next;
 		}
+	}
 	else
+	{
 		while (stack != NULL)
 		{
 			if (*stack -> index < i)
 				i = *stack -> index;
 			stack = stack -> next;
 		}
+	}
 	return (i);
 }

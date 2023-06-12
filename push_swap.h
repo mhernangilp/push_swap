@@ -15,7 +15,7 @@
 
 #             include <stdio.h>
 
-#include <stdlib.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 typedef struct s_stack
@@ -27,9 +27,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-
 //Check args
-int		check_args(char **argv, int argc);
+int	check_args(char **argv, int argc);
 
 //Check args utils
 int	is_sign(char c);
@@ -37,7 +36,11 @@ int	nbstr_cmp(const char *s1, const char *s2);
 int	is_digit(char c);
 
 //Initialize stacks
-void initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
+
+//Initialize stacks utils
+void	set_arr(t_stack *stack, int index);
+void	set_arr_size(t_stack *stack, int index);
 
 //Sort big functions
 void	sort_big(t_stack **a, t_stack **b);

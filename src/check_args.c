@@ -60,7 +60,7 @@ static int	is_zero(char *str)
 	return (1);
 }
 
-int check_args(char **argv, int argc)
+int	check_args(char **argv, int argc)
 {
 	int	i;
 	int	zeros;

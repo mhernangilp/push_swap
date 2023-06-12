@@ -1,5 +1,3 @@
-
-
 #include "../push_swap.h"
 
 static void	sort_3(t_stack **a)
@@ -31,34 +29,39 @@ static void	sort_3(t_stack **a)
 	}
 }
 
-static void	place_stack(t_stack **a, int value)
+static void	move_stack_middle_num(t_stack **a, int value)
 {
 	t_stack	*end;
 
-	if (value < get_smallest_num(*a, 0) || value > get_biggest_num(*a, 0))
-		while (*(*a) -> value != get_smallest_num(*a, 0))
-		{
-			if (get_stack_pos(a, value) <= stack_len(*a) / 2) 
-				rotate(a, 'a');
-			else
-				reverse(a, 'a');
-		}
-	else
+	end = *a;
+	while (end -> next != NULL)
+		end = end -> next;
+	while (!(*end -> value < value && value < *(*a) -> value))
 	{
+		if (get_stack_pos(a, value) <= stack_len(*a) / 2)
+			rotate(a, 'a');
+		else
+			reverse(a, 'a');
 		end = *a;
 		while (end -> next != NULL)
 			end = end -> next;
-		while (!(*end -> value < value && value < *(*a) -> value))
+	}
+}
+
+static void	place_stack(t_stack **a, int value)
+{
+	if (value < get_smallest_num(*a, 0) || value > get_biggest_num(*a, 0))
+	{
+		while (*(*a) -> value != get_smallest_num(*a, 0))
 		{
 			if (get_stack_pos(a, value) <= stack_len(*a) / 2)
 				rotate(a, 'a');
 			else
 				reverse(a, 'a');
-			end = *a;
-			while (end -> next != NULL)
-				end = end -> next;
 		}
 	}
+	else
+		move_stack_middle_num(a, value);
 }
 
 static void	sort_5(t_stack **a, t_stack **b)

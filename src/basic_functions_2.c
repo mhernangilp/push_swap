@@ -1,4 +1,3 @@
-
 #include "../push_swap.h"
 
 int	ft_atoi(const char *str)
@@ -8,8 +7,8 @@ int	ft_atoi(const char *str)
 
 	negative = 1;
 	res = 0;
-	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r'))
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t'
+			|| *str == '\v' || *str == '\f' || *str == '\r'))
 		++str;
 	if (*str == '-')
 		negative = -1;
@@ -23,37 +22,34 @@ int	ft_atoi(const char *str)
 	return (res * negative);
 }
 
-void	exit_program(t_stack **a, t_stack **b)
+static void	free_stack(t_stack **stack)
 {
 	t_stack	*aux;
 
+	while (stack_len(*stack) != 0)
+	{
+		aux = *stack;
+		*stack = aux -> next;
+		free(aux -> value);
+		free(aux -> index);
+		free(aux -> arr);
+		free(aux -> arr_size);
+	}
+}
+
+void	exit_program(t_stack **a, t_stack **b)
+{
 	if (a)
-		while (stack_len(*a) != 0)
-		{
-			aux = *a;
-			*a = aux -> next;
-			free(aux -> value);
-			free(aux -> index);
-			free(aux -> arr);
-			free(aux -> arr_size);
-		}
+		free_stack(a);
 	if (b)
-		while (stack_len(*b) != 0)
-		{
-			aux = *b;
-			*b = aux -> next;
-			free(aux -> value);
-			free(aux -> index);
-			free(aux -> arr);
-			free(aux -> arr_size);
-		}
+		free_stack(b);
 	exit(0);
 }
 
 int	get_sort_pos(t_stack **a)
 {
 	t_stack	*aux;
-	int	pos;
+	int		pos;
 
 	aux = *a;
 	pos = 0;
@@ -69,26 +65,25 @@ int	get_stack_pos(t_stack **a, int value)
 {
 	t_stack	*aux;
 	t_stack	*ant;
-	int	pos;
+	int		pos;
 
 	pos = 0;
 	aux = *a;
 	if (value < get_smallest_num(*a, 0) || value > get_biggest_num(*a, 0))
-		while (*aux -> value != get_smallest_num(*a, 0) && aux != NULL)
-		{
+	{
+		while (*aux -> value != get_smallest_num(*a, 0) && aux != NULL
+			&& pos++ != -1)
 			aux = aux -> next;
-			pos++;
-		}
+	}
 	else
 	{
 		ant = *a;
 		while (ant -> next != NULL)
 			ant = ant -> next;
-		while (!(*ant -> value < value && value < *aux -> value))
+		while (!(*ant -> value < value && value < *aux -> value) && pos++ != -1)
 		{
 			ant = aux;
 			aux = aux -> next;
-			pos++;
 		}
 	}
 	return (pos);

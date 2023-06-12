@@ -1,10 +1,9 @@
-
 #include "../push_swap.h"
 
 void	print_stack(char name, t_stack *stack)
 {
 	t_stack	*aux;
-	int	i;
+	int		i;
 
 	printf("-- Name: %c --\n", name);
 	aux = stack;

@@ -26,7 +26,8 @@ static void	new_index(t_stack *stack, int value)
 	}
 }
 
-static void	assign_smallest(t_stack **aux, t_stack **smallest, int *smallest_num)
+static void	assign_smallest(t_stack **aux, t_stack **smallest,
+			int *smallest_num)
 {
 	if (*(*aux) -> value <= *smallest_num && (*aux) -> index == NULL)
 	{
@@ -34,41 +35,6 @@ static void	assign_smallest(t_stack **aux, t_stack **smallest, int *smallest_num
 		*smallest = *aux;
 	}
 	(*aux) = (*aux) -> next;
-}
-
-static void	set_arr(t_stack *stack, int index)
-{
-	int	*arr;
-	int	i;
-
-	arr = malloc(sizeof(int) * *stack -> arr_size);
-	i = *stack -> arr_size - 1;
-	while (index != 0)
-	{
-		arr[i] = index % 2;
-		index /= 2;
-		i--;
-	}
-	while (i >= 0)
-	{
-		arr[i] = 0;
-		i--;
-	}
-	stack -> arr = arr;
-}
-
-static void	set_arr_size(t_stack *stack, int index)
-{
-	int *i;
-
-	i = malloc(sizeof(int));
-	*i = 1;
-	while (index > 1)
-	{
-		index /= 2;
-		(*i)++;
-	}
-	stack -> arr_size = i;
 }
 
 static void	convert_index_to_bin(t_stack **a)
@@ -86,11 +52,11 @@ static void	convert_index_to_bin(t_stack **a)
 
 static void	initialize_index(t_stack **a)
 {
-	int	i;
-	int	finished;
+	int		i;
+	int		finished;
+	int		smallest_num;
 	t_stack	*aux;
 	t_stack	*smallest;
-	int	smallest_num;
 
 	i = 0;
 	finished = 0;
@@ -99,7 +65,7 @@ static void	initialize_index(t_stack **a)
 		smallest_num = 2147483647;
 		smallest = NULL;
 		aux = *a;
-		while(aux != NULL)
+		while (aux != NULL)
 			assign_smallest(&aux, &smallest, &smallest_num);
 		if (smallest == NULL)
 			finished = 1;
@@ -111,7 +77,7 @@ static void	initialize_index(t_stack **a)
 void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
 {
 	int		i;
-	t_stack		*temp_node;
+	t_stack	*temp_node;
 
 	*b = NULL;
 	i = argc - 1;
