@@ -31,35 +31,6 @@ static void	sort_3(t_stack **a)
 	}
 }
 
-static int	get_stack_pos(t_stack **a, int value)
-{
-	t_stack	*aux;
-	t_stack	*ant;
-	int	pos;
-
-	pos = 0;
-	aux = *a;
-	if (value < get_smallest_num(*a, 0) || value > get_biggest_num(*a, 0))
-		while (*aux -> value != get_smallest_num(*a, 0) && aux != NULL)
-		{
-			aux = aux -> next;
-			pos++;
-		}
-	else
-	{
-		ant = *a;
-		while (ant -> next != NULL)
-			ant = ant -> next;
-		while (!(*ant -> value < value && value < *aux -> value))
-		{
-			ant = aux;
-			aux = aux -> next;
-			pos++;
-		}
-	}
-	return (pos);
-}
-
 static void	place_stack(t_stack **a, int value)
 {
 	t_stack	*end;
@@ -88,21 +59,6 @@ static void	place_stack(t_stack **a, int value)
 				end = end -> next;
 		}
 	}
-}
-
-static int	get_sort_pos(t_stack **a)
-{
-	t_stack	*aux;
-	int	pos;
-
-	aux = *a;
-	pos = 0;
-	while (*aux -> value != get_smallest_num(*a, 0))
-	{
-		aux = aux -> next;
-		pos++;
-	}
-	return (pos);
 }
 
 static void	sort_5(t_stack **a, t_stack **b)

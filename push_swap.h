@@ -27,10 +27,17 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
-void	exit_program(t_stack **a, t_stack **b);
+
+//Check args
 int		check_args(char **argv, int argc);
+
+//Check args utils
+int	is_sign(char c);
+int	nbstr_cmp(const char *s1, const char *s2);
+int	is_digit(char c);
+
+//Initialize stacks
 void initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
-int	ft_atoi(const char *str);
 
 //Sort big functions
 void	sort_big(t_stack **a, t_stack **b);
@@ -50,6 +57,12 @@ int	stack_len(t_stack *stack);
 int	is_sorted(t_stack *stack);
 int	get_biggest_num(t_stack *stack, int mode);
 int	get_smallest_num(t_stack *stack, int mode);
+
+//Basic functions 2
+int	ft_atoi(const char *str);
+void	exit_program(t_stack **a, t_stack **b);
+int	get_sort_pos(t_stack **a);
+int	get_stack_pos(t_stack **a, int value);
 
 //Extra functions
 void	print_stack(char name, t_stack *stack);
