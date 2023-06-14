@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:14:17 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 14:34:12 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:00:11 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		exit_program(NULL, NULL);
 	}
-	else
-		initialize_stacks(&a, &b, argv, argc);
+	initialize_stacks(&a, &b, argv, argc);
 	if (!is_sorted(a))
 	{
 		if (stack_len(a) < 6)
