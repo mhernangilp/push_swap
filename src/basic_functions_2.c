@@ -29,11 +29,13 @@ static void	free_stack(t_stack **stack)
 	while (stack_len(*stack) != 0)
 	{
 		aux = *stack;
+		printf("Elimino %d\n", *aux -> value);
 		*stack = aux -> next;
 		free(aux -> value);
 		free(aux -> index);
 		free(aux -> arr);
 		free(aux -> arr_size);
+		free(aux);
 	}
 }
 
