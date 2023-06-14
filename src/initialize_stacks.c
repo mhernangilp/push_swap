@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:03:04 by mhernang          #+#    #+#             */
-/*   Updated: 2023/05/31 20:33:10 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:06:39 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static void	new_index(t_stack *stack, int value)
 static void	assign_smallest(t_stack **aux, t_stack **smallest,
 			int *smallest_num)
 {
-	if (*(*aux) -> value <= *smallest_num && (*aux) -> index == NULL)
+	if (*(*aux)-> value <= *smallest_num && (*aux)-> index == NULL)
 	{
-		*smallest_num = *(*aux) -> value;
+		*smallest_num = *(*aux)-> value;
 		*smallest = *aux;
 	}
-	(*aux) = (*aux) -> next;
+	(*aux) = (*aux)-> next;
 }
 
 static void	convert_index_to_bin(t_stack **a)

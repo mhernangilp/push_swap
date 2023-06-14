@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:43:05 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 14:43:06 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:07:03 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	swap(t_stack **stack, char name)
 
 	if (stack_len(*stack) < 2)
 		return ;
-	aux = (*stack) -> next;
+	aux = (*stack)-> next;
 	(*stack)-> next = aux -> next;
 	aux -> next = (*stack);
 	*stack = aux;
@@ -34,7 +34,7 @@ void	push(t_stack **dest, t_stack **orig, char name)
 	if (stack_len(*orig) == 0)
 		return ;
 	aux = *orig;
-	*orig = (*orig) -> next;
+	*orig = (*orig)-> next;
 	aux -> next = (*dest);
 	*dest = aux;
 	write(1, "p", 1);
@@ -53,7 +53,7 @@ void	rotate(t_stack **stack, char name)
 	aux = *stack;
 	while (end -> next != NULL)
 		end = end -> next;
-	*stack = (*stack) -> next;
+	*stack = (*stack)-> next;
 	aux -> next = NULL;
 	end -> next = aux;
 	write(1, "r", 1);

@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:43:14 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 14:43:15 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:07:26 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	sort_big(t_stack **a, t_stack **b)
 	int	i;
 	int	j;
 
-	j = *(*a) -> arr_size;
+	j = *(*a)-> arr_size;
 	while (--j >= 0)
 	{
 		i = 0;
 		while (i < stack_len(*a))
 		{
-			if ((*a) -> arr[j] == 0)
+			if ((*a)-> arr[j] == 0)
 				push(b, a, 'b');
 			else
 			{
