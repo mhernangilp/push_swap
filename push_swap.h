@@ -52,6 +52,9 @@ void	push(t_stack **dest, t_stack **orig, char name);
 void	rotate(t_stack **stack, char name);
 void	reverse(t_stack **stack, char name);
 
+//ft_split
+char	**ft_split(char const *s, char c, int *argc);
+
 //Basic functions
 t_stack	*new_node(char *value);
 int		stack_len(t_stack *stack);

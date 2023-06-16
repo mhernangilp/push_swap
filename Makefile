@@ -21,7 +21,8 @@ SRCS = src/main.c \
 	   src/initialize_stacks_utils.c \
 	   src/movement_functions.c \
 	   src/sort_big_functions.c \
-	   src/sort_small_functions.c
+	   src/sort_small_functions.c \
+	   src/ft_split.c
 
 INCLUDE = ./push_swap.h
 
