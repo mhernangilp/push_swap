@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:03:04 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 17:06:39 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:38:07 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,19 @@ static void	initialize_index(t_stack **a)
 	convert_index_to_bin(a);
 }
 
-void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc)
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 {
 	int		i;
 	t_stack	*temp_node;
 
 	*b = NULL;
-	i = argc - 1;
-	temp_node = new_node(argv[i]);
+	i = 0;
+	while (argv[i] != NULL)
+		i++;
+	temp_node = new_node(argv[--i]);
 	temp_node -> next = NULL;
 	*a = temp_node;
-	while (--i > 0)
+	while (--i >= 0)
 	{
 		temp_node = new_node(argv[i]);
 		temp_node -> next = *a;

@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:14:17 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 17:00:11 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:36:05 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,20 @@
 static char	**assign_values(char **argv, int *argc)
 {
 	char	**values;
+	int		count;
+	int		i;
+	int		filled;
 
-	if (*argc > 2)
-		values = argv;
-	else
-		values = ft_split(argv[1], ' ', argc);
+	i = 0;
+	count = 0;
+	while (++i < *argc)
+		count += ft_delcount(argv[i], ' ');
+	values = malloc((count + 1) * sizeof(char *));
+	values[count] = NULL;
+	filled = 0;
+	i = 0;
+	while (++i < *argc)
+		filled += ft_split(argv[i], ' ', values + filled);
 	return (values);
 }
 
@@ -32,12 +41,12 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		exit_program(NULL, NULL);
 	values = assign_values(argv, &argc);
-	if (!check_args(values, argc))
+	if (!check_args(values))
 	{
 		write(1, "Error\n", 6);
 		exit_program(NULL, NULL);
 	}
-	initialize_stacks(&a, &b, values, argc);
+	initialize_stacks(&a, &b, values);
 	if (!is_sorted(a))
 	{
 		if (stack_len(a) < 6)

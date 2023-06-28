@@ -6,13 +6,13 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:03:45 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/21 13:03:46 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:06:37 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	ft_delcount(char const *s, char c)
+int	ft_delcount(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -45,7 +45,7 @@ static void	ft_loop(char const *s, char *c, int *csize, char **p)
 	int	count;
 
 	i = 0;
-	j = 1;
+	j = 0;
 	while (j < *csize)
 	{
 		count = 0;
@@ -69,7 +69,7 @@ static void	ft_fillco(char const *s, char c, int csize, char **p)
 	int	j;
 
 	i = 0;
-	j = 1;
+	j = 0;
 	while (j < csize)
 	{
 		count = 0;
@@ -86,19 +86,11 @@ static void	ft_fillco(char const *s, char c, int csize, char **p)
 	ft_loop(s, &c, &csize, p);
 }
 
-char	**ft_split(char const *s, char c, int *argc)
+int	ft_split(char const *s, char c, char **values)
 {
-	int		cosize;
-	char	**p;
+	int	cosize;
 
-	if (!s)
-		return (NULL);
-	cosize = ft_delcount(s, c) + 1;
-	*argc = cosize;
-	p = malloc((cosize + 1) * sizeof(char *));
-	if (!p)
-		return (NULL);
-	p[cosize] = NULL;
-	ft_fillco(s, c, cosize, p);
-	return (p);
+	cosize = ft_delcount(s, c);
+	ft_fillco(s, c, cosize, values);
+	return (cosize);
 }

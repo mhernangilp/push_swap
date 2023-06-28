@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:12:04 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 14:44:46 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:36:36 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 }	t_stack;
 
 //Check args
-int		check_args(char **argv, int argc);
+int		check_args(char **argv);
 
 //Check args utils
 int		is_sign(char c);
@@ -34,7 +34,7 @@ int		nbstr_cmp(const char *s1, const char *s2);
 int		is_digit(char c);
 
 //Initialize stacks
-void	initialize_stacks(t_stack **a, t_stack **b, char **argv, int argc);
+void	initialize_stacks(t_stack **a, t_stack **b, char **argv);
 
 //Initialize stacks utils
 void	set_arr(t_stack *stack, int index);
@@ -53,7 +53,8 @@ void	rotate(t_stack **stack, char name);
 void	reverse(t_stack **stack, char name);
 
 //ft_split
-char	**ft_split(char const *s, char c, int *argc);
+int		ft_split(char const *s, char c, char **values);
+int		ft_delcount(char const *s, char c);
 
 //Basic functions
 t_stack	*new_node(char *value);

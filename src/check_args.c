@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:34:21 by mhernang          #+#    #+#             */
-/*   Updated: 2023/05/31 20:33:01 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:35:47 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static int	is_dup(char **argv)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
-		j = 1;
+		j = 0;
 		while (argv[j])
 		{
 			if (j != i && nbstr_cmp(argv[i], argv[j]) == 0)
@@ -60,14 +60,14 @@ static int	is_zero(char *str)
 	return (1);
 }
 
-int	check_args(char **argv, int argc)
+int	check_args(char **argv)
 {
 	int	i;
 	int	zeros;
 
-	i = 0;
+	i = -1;
 	zeros = 0;
-	while (++i < argc)
+	while (argv[++i] != NULL)
 	{
 		if (!is_num(argv[i]))
 			return (0);
