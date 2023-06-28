@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:03:04 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/28 14:38:07 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:50:22 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	initialize_stacks(t_stack **a, t_stack **b, char **argv)
 	i = 0;
 	while (argv[i] != NULL)
 		i++;
+	if (i == 0)
+		exit_program(NULL, NULL);
 	temp_node = new_node(argv[--i]);
 	temp_node -> next = NULL;
 	*a = temp_node;
