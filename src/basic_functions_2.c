@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:42:18 by mhernang          #+#    #+#             */
-/*   Updated: 2023/07/05 13:55:11 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:06:00 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long int	ft_atoi(const char *str)
 {
 	long int	res;
-	int	negative;
+	int			negative;
 
 	negative = 1;
 	res = 0;
