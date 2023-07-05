@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:12:04 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/28 16:50:18 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/07/05 13:55:02 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		get_biggest_num(t_stack *stack, int mode);
 int		get_smallest_num(t_stack *stack, int mode);
 
 //Basic functions 2
-int		ft_atoi(const char *str);
+long int		ft_atoi(const char *str);
 void	exit_program(t_stack **a, t_stack **b);
 int		get_sort_pos(t_stack **a);
 int		get_stack_pos(t_stack **a, int value);

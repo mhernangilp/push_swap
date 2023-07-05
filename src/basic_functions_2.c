@@ -6,15 +6,15 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:42:18 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/14 14:42:22 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/07/05 13:55:11 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	res;
+	long int	res;
 	int	negative;
 
 	negative = 1;

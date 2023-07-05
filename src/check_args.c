@@ -6,7 +6,7 @@
 /*   By: mhernang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:34:21 by mhernang          #+#    #+#             */
-/*   Updated: 2023/06/28 14:35:47 by mhernang         ###   ########.fr       */
+/*   Updated: 2023/07/05 13:52:44 by mhernang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	is_num(char *str)
 {
 	int	i;
+	long int	n;
 
 	i = 0;
 	if (is_sign(str[i]) && str[i + 1] != '\0')
@@ -22,6 +23,9 @@ static int	is_num(char *str)
 	while (str[i] && is_digit(str[i]))
 		i++;
 	if (str[i] != '\0' && !is_digit(str[i]))
+		return (0);
+	n = ft_atoi(str);
+	if (n < -2147483648 || n > 2147483647)
 		return (0);
 	return (1);
 }
